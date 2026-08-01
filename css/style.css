@@ -1,0 +1,129 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
+::selection {
+  background: #2563EB;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* ---------- Scroll reveal ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+[data-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal-group] > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1);
+}
+[data-reveal-group].in-view > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal], [data-reveal-group] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- Header states ---------- */
+#header {
+  background: transparent;
+}
+#header.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06), 0 12px 24px -12px rgba(15, 23, 42, 0.12);
+}
+#header.scrolled > div:first-child a.font-extrabold,
+#header.scrolled #desktopNav a,
+#header.scrolled > div:first-child a[href^="tel"] {
+  color: #0F172A;
+}
+#header:not(.scrolled) #desktopNav a,
+#header:not(.scrolled) > div:first-child a[href^="tel"],
+#header:not(.scrolled) > div:first-child .font-extrabold {
+  color: #fff;
+}
+#header:not(.scrolled) .font-medium.text-slate-500 {
+  color: rgba(255,255,255,0.6);
+}
+#header:not(.scrolled) #navToggle {
+  color: #fff;
+}
+#header.scrolled #navToggle {
+  color: #0F172A;
+}
+
+/* ---------- Hero slideshow crossfade ---------- */
+.hero-slide, .hero-slide-mobile {
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* ---------- Button ripple ---------- */
+.btn-ripple {
+  isolation: isolate;
+}
+.ripple-el {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  transform: scale(0);
+  animation: ripple .6s linear forwards;
+}
+
+/* ---------- FAQ accordion ---------- */
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.faq-item.open .faq-panel {
+  max-height: 260px;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* ---------- Portfolio modal ---------- */
+#portfolioModal.open {
+  display: block;
+}
+
+/* ---------- Marquee for logos (unused fallback safe) ---------- */
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
