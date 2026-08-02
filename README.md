@@ -55,4 +55,4 @@ Tailwind is loaded via the CDN Play script for a zero-build, single-file-friendl
 
 ## Portfolio Screenshots
 
-The screenshots in `assets/images/portfolio/` are real captures from past projects (Aerith Vet Clinic, Kopify Coffee, Odeworks Motorshop, Opta Eye Clinic, Yuna's Dental Clinic, Mystique Spa), used here to showcase actual work.
+The screenshots in `assets/images/portfolio/` are real captures from past projects (Aerith Vet Clinic, Brew Can Do It, Odeworks Motorshop, Opta Eye Clinic, Yuna's Dental Clinic, Mystique Spa), used here to showcase actual work.
