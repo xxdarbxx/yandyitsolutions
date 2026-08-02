@@ -250,31 +250,43 @@
     var form = document.getElementById('contactForm');
     if (!form) return;
     var note = document.getElementById('formNote');
+    var noteDefault = note ? note.textContent : '';
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var submitBtnDefault = submitBtn ? submitBtn.innerHTML : '';
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = form.name.value.trim();
-      var email = form.email.value.trim();
-      var phone = form.phone.value.trim();
-      var service = form.service.value;
-      var message = form.message.value.trim();
-
-      var body = 'Name: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Phone: ' + (phone || 'Not provided') + '\n' +
-        'Service Needed: ' + (service || 'Not specified') + '\n\n' +
-        'Message:\n' + message;
-
-      var mailto = 'mailto:renzmaturino28@gmail.com' +
-        '?subject=' + encodeURIComponent('Free Quote Request - ' + name) +
-        '&body=' + encodeURIComponent(body);
-
-      window.location.href = mailto;
-
-      if (note) {
-        note.textContent = 'Your email app should now be open with your message ready — just hit send!';
-        note.classList.add('text-emerald-600', 'font-semibold');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
       }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          if (note) {
+            note.textContent = "Thanks! Your quote request has been sent — we'll get back to you within one business day.";
+            note.classList.add('text-emerald-600', 'font-semibold');
+          }
+        } else {
+          throw new Error('Form submission failed');
+        }
+      }).catch(function () {
+        if (note) {
+          note.textContent = 'Something went wrong sending your message. Please call or message us on Facebook instead.';
+          note.classList.add('text-red-600', 'font-semibold');
+        }
+      }).finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitBtnDefault;
+          if (window.lucide) lucide.createIcons();
+        }
+      });
     });
   }
 

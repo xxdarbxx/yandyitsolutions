@@ -36,7 +36,7 @@ npx serve .
 
 ## Things to Configure Before Going Live
 
-1. **Contact form** — currently opens a `mailto:` to `renzmaturino28@gmail.com` with the form details pre-filled (no backend required). Update the address in `js/main.js` (`setupContactForm`) if it should go elsewhere, or wire it to a form service (Formspree, etc.) instead.
+1. **Contact form** — submits via [Formspree](https://formspree.io) (`https://formspree.io/f/meeyyqda`, tied to `renzmaturino28@gmail.com`) using a `fetch` POST with no page reload; success/error state shows inline via `#formNote`. To change where submissions go, create a new Formspree form and update the `action` attribute on `#contactForm` in `index.html`.
 2. **Facebook Messenger Chat Plugin** — the plugin markup is in place (`#fb-customer-chat` in `index.html`) but needs your numeric Facebook **Page ID** in the `page_id` attribute, plus your domain whitelisted in Meta Business Suite → Messenger settings, before it will render. Until then, the floating **Messenger button** (linking to `https://m.me/yandysolutions`) works immediately with no setup and is the primary way visitors reach you on Messenger.
 3. **Canonical URL / sitemap** — currently set to the GitHub Pages URL pattern `https://xxdarbxx.github.io/yandyitsolutions/`. Update `<link rel="canonical">`, Open Graph tags, `robots.txt`, and `sitemap.xml` if you deploy to a custom domain.
 4. **Pricing** — the ₱15,000 / ₱30,000 / ₱55,000 starting prices are placeholders. Adjust in the Pricing section of `index.html` to match your actual rates.
@@ -55,4 +55,4 @@ Tailwind is loaded via the CDN Play script for a zero-build, single-file-friendl
 
 ## Portfolio Screenshots
 
-The screenshots in `assets/images/portfolio/` are real captures from past projects (Aerith Vet Clinic, Brew Can Do It, Odeworks Motorshop, Opta Eye Clinic, Yuna's Dental Clinic, Mystique Spa), used here to showcase actual work.
+The screenshots in `assets/images/portfolio/` are real captures from past projects (Aerith Vet Clinic, Brew Can Do It, Odeworks Motorshop, Opta Eye Clinic, Yuna's Dental Clinic, Mystique Spa, CNM Pharmacy, Yuna's Flower Shop, Yumi's Cake Shop), used here to showcase actual work.
