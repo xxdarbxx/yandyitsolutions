@@ -55,4 +55,4 @@ Tailwind is loaded via the CDN Play script for a zero-build, single-file-friendl
 
 ## Portfolio Screenshots
 
-The screenshots in `assets/images/portfolio/` are real captures from past projects (Aerith Vet Clinic, Brew Can Do It, Odeworks Motorshop, Opta Eye Clinic, Yuna's Dental Clinic, Mystique Spa, CNM Pharmacy, Yuna's Flower Shop, Yumi's Cake Shop, Sunrise Valley Academy Portal), used here to showcase actual work.
+The screenshots in `assets/images/portfolio/` are real captures from past projects (Aerith Vet Clinic, Brew Can Do It, Odeworks Motorshop, Opta Eye Clinic, Yuna's Dental Clinic, Mystique Spa, CNM Pharmacy, Yuna's Flower Shop, Yumi's Cake Shop, Sunrise Valley Academy Portal, Estate One, Sampaloc Hotel), used here to showcase actual work.
